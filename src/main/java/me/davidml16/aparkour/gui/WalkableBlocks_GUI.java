@@ -56,7 +56,7 @@ public class WalkableBlocks_GUI implements Listener {
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.WalkableBlocks.title").replaceAll("%parkour%", id));
 
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack edge = new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName(ColorManager.translate("&aBack to config")).toItemStack();
 
         for (Integer i : borders) {
@@ -104,13 +104,13 @@ public class WalkableBlocks_GUI implements Listener {
         if (page > 0) {
             gui.setItem(18, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aPrevious page")).toItemStack());
         } else {
-            gui.setItem(18, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(18, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (walkable.size() > (page + 1) * 21) {
             gui.setItem(26, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aNext page")).toItemStack());
         } else {
-            gui.setItem(26, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(26, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (walkable.size() > 21) walkable = walkable.subList(page * 21, ((page * 21) + 21) > walkable.size() ? walkable.size() : (page * 21) + 21);
@@ -122,7 +122,7 @@ public class WalkableBlocks_GUI implements Listener {
                 gui.addItem(new ItemBuilder(Material.getMaterial(block.getId()), 1, data).setName(ColorManager.translate("&a" + name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase())).setLore("", ColorManager.translate("&eClick to remove!")).toItemStack());
             }
         } else {
-            gui.setItem(22, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny walkable block selected")).setLore(
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny walkable block selected")).setLore(
                     "",
                     ColorManager.translate(" &7You dont have any "),
                     ColorManager.translate(" &7walkable block selected. "),

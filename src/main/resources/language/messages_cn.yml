@@ -1,0 +1,88 @@
+# 
+# 这是语言文件
+# 你可以改变很多语言在这个文件
+# 
+# 如果你想恢复默认语言
+# 删除某行的字然后重启服务器即可
+# 	
+Prefix: '&9&lAParkour &l&o&f>>&r'
+Commands:
+  NoPerms: '%prefix% &c您没有使用此命令的权限!'
+  NoStats: '%prefix% &c您当前在这里没有统计信息!'
+  NoParkours: '%prefix% &c跑酷将在此刻创建!'
+  Reload: '%prefix% &a插件已重载!'
+GUIs:
+  Stats:
+    title: 跑酷统计
+  Play:
+    title: 开始跑酷
+  Config:
+    title: '%parkour% | 配置'
+  WalkableBlocks:
+    title: '%parkour% | 允许踩踏方块'
+  Rewards:
+    title: '%parkour% | 奖励'
+  Checkpoints:
+    title: '%parkour% | 记录点'
+  Holograms:
+    title: '%parkour% | 全息字'
+  Titles:
+    title: '%parkour% | 标题'
+  Misc:
+    title: '%parkour% | 其他选项'
+Times:
+  Loading: '&c加载中...'
+  NoBestTime: N/A
+Timer:
+  ActionBar: '&e&l当前耗时: &6%currentTime% &7- &e&l最佳成绩: &6%bestTime%'
+  Formats:
+    PlayerTime: '%minutes%m %seconds%s %milliseconds%ms'
+    HologramUpdate: '%minutes%m %seconds%s'
+Holograms:
+  Stats:
+    Line1: '&a%player%''s &a%parkour% 跑酷统计'
+    Line2: '&a最佳成绩&7: &6%time%'
+  Top:
+    Header:
+      Line1: '&a&l成绩排行榜'
+      Line2: '&7- %parkour% -'
+    Body:
+      Line: '&e%position%. &a%player% &7- &6%time%'
+      NoTime: '&e%position%. &cN/A'
+      Loading: '&e%position%. &c加载中...'
+    Footer:
+      Line: '&a更新: &6%time%'
+      Updating: '&a更新: &c加载中...'
+  Plates:
+    Start:
+      Line1: '&e&lParkour 起点'
+      Line2: '&f开始!'
+    End:
+      Line1: '&e&lParkour 终点'
+      Line2: '&f结束!'
+    Checkpoint:
+      Line1: '&e&l记录点'
+      Line2: '&f#%checkpoint%'
+Messages:
+  NotInParkour: '&c您不在一场跑酷中..'
+  BlockedCommand: '&c您不能在跑酷中使用此命令.'
+  Started: '&a开始跑酷！请尽快到达终点！'
+  Fly: '&c在跑酷中禁止飞行.'
+  Return: '&6返回跑酷的起点...'
+  Checkpoint: '&a您已到达记录点 &e#%checkpoint% &a耗时 &e%time%.'
+  ReturnCheckpoint: '&6回到记录点 &e#%checkpoint%'
+  NeedCheckpoint: '&c您需要先到达记录点才能结束跑酷.'
+EndMessage:
+  FirstTime: '&6恭喜您首次完成跑酷!'
+  Normal: '&6您完成了跑酷，耗时: &d%endTime%'
+  Record: '&6您刷新了最佳成绩，耗时: &d%recordTime%'
+Titles:
+  Start:
+    Title: '&e&l跑酷 挑战'
+    Subtitle: '&f&l起点'
+  Checkpoint:
+    Title: '&e&l记录点'
+    Subtitle: '&f&l#%checkpoint%'
+  End:
+    Title: '&e&l跑酷 挑战'
+    Subtitle: '&f&l终点'

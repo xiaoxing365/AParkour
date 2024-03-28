@@ -47,8 +47,8 @@ public class CheckpointMenu implements ConversationAbandonedListener, CommonProm
                         parkour.getCheckpointLocations().add(loc);
 
                         Block block = loc.getWorld().getBlockAt(loc);
-                        if(block.getType() != Material.IRON_PLATE) {
-                            block.setType(Material.IRON_PLATE);
+                        if(block.getType() != Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
+                            block.setType(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
                         }
 
                         main.getParkourHandler().loadCheckpointHologram(parkour, checkpoint);
@@ -70,7 +70,7 @@ public class CheckpointMenu implements ConversationAbandonedListener, CommonProm
 
                         Location loc2 = parkour.getCheckpointLocations().get(parkour.getCheckpointLocations().size() - 1);
                         Block block = loc2.getWorld().getBlockAt(loc2);
-                        if(block.getType() == Material.IRON_PLATE) {
+                        if(block.getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
                             block.setType(Material.AIR);
                         }
 

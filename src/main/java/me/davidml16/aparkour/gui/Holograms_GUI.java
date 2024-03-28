@@ -56,24 +56,24 @@ public class Holograms_GUI implements Listener {
         if(guis.containsKey(id)) return;
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Holograms.title").replaceAll("%parkour%", id));
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack edge = new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName(ColorManager.translate("&aBack to config")).toItemStack();
 
         FileConfiguration config = main.getParkourHandler().getConfig(id);
 
         if(config.contains("parkour.holograms.stats")) {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
             gui.setItem(19, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&aStats hologram location")).setLore("", ColorManager.translate("&eClick to remove location!")).toItemStack());
         } else {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
             gui.setItem(19, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&cStats hologram location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.holograms.top")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
             gui.setItem(20, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&aTop hologram location")).setLore("", ColorManager.translate("&eClick to remove location!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
             gui.setItem(20, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&cTop hologram location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
@@ -122,8 +122,8 @@ public class Holograms_GUI implements Listener {
                         ColorManager.translate("&eRight-Click to subtract 0.1 ")
                 ).toItemStack());
 
-        gui.setItem(12, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cComing soon")).toItemStack());
-        gui.setItem(21, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cComing soon")).toItemStack());
+        gui.setItem(12, new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cComing soon")).toItemStack());
+        gui.setItem(21, new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cComing soon")).toItemStack());
 
         for (int i = 0; i < 45; i++) {
             if(gui.getItem(i) == null) {
@@ -150,18 +150,18 @@ public class Holograms_GUI implements Listener {
         Parkour parkour = main.getParkourHandler().getParkourById(id);
 
         if(config.contains("parkour.holograms.stats")) {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
             gui.setItem(19, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&aStats hologram location")).setLore("", ColorManager.translate("&eClick to remove location!")).toItemStack());
         } else {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
             gui.setItem(19, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&cStats hologram location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.holograms.top")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
             gui.setItem(20, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&aTop hologram location")).setLore("", ColorManager.translate("&eClick to remove location!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
             gui.setItem(20, new ItemBuilder(Material.ARMOR_STAND, 1).setName(ColorManager.translate("&cTop hologram location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 

@@ -1,7 +1,5 @@
 package me.davidml16.aparkour.handlers;
 
-import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import com.gmail.filoghost.holographicdisplays.api.line.TextLine;
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.LeaderboardEntry;
 import me.davidml16.aparkour.data.Parkour;

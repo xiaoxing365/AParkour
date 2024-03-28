@@ -55,33 +55,33 @@ public class Titles_GUI implements Listener {
         if(guis.containsKey(id)) return;
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Titles.title").replaceAll("%parkour%", id));
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack edge = new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName(ColorManager.translate("&aBack to config")).toItemStack();
 
         FileConfiguration config = main.getParkourHandler().getConfig(id);
 
         if(config.getBoolean("parkour.titles.start.enabled")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aStart title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aStart title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cStart title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cStart title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         if(config.getBoolean("parkour.titles.end.enabled")) {
-            gui.setItem(13, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(22, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aEnd title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(13, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aEnd title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(13, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(22, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cEnd title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(13, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cEnd title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         if(config.getBoolean("parkour.titles.checkpoint.enabled")) {
-            gui.setItem(15, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(24, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aCheckpoint title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(15, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(24, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aCheckpoint title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(15, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(24, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cCheckpoint title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(15, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(24, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cCheckpoint title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         for (int i = 0; i < 45; i++) {
@@ -107,27 +107,27 @@ public class Titles_GUI implements Listener {
         FileConfiguration config = main.getParkourHandler().getConfig(id);
 
         if(config.getBoolean("parkour.titles.start.enabled")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aStart title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aStart title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cStart title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cStart title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         if(config.getBoolean("parkour.titles.end.enabled")) {
-            gui.setItem(13, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(22, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aEnd title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(13, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aEnd title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(13, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(22, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cEnd title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(13, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cEnd title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         if(config.getBoolean("parkour.titles.checkpoint.enabled")) {
-            gui.setItem(15, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(24, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&aCheckpoint title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
+            gui.setItem(15, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(24, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&aCheckpoint title")).setLore("", ColorManager.translate("&eClick to disable!")).toItemStack());
         } else {
-            gui.setItem(15, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(24, new ItemBuilder(Material.SIGN, 1).setName(ColorManager.translate("&cCheckpoint title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
+            gui.setItem(15, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(24, new ItemBuilder(Material.LEGACY_SIGN, 1).setName(ColorManager.translate("&cCheckpoint title")).setLore("", ColorManager.translate("&eClick to enable!")).toItemStack());
         }
 
         for(HumanEntity pl : gui.getViewers()) {

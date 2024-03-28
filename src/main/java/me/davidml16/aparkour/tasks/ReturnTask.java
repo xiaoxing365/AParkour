@@ -35,7 +35,7 @@ public class ReturnTask {
 
                     Block block = p.getLocation().getY() % 1 == 0 ? p.getLocation().getBlock().getRelative(BlockFace.DOWN) : p.getLocation().getBlock();
 
-                    if ((WalkableBlocksUtil.noContainsWalkable(session.getParkour().getWalkableBlocks(), block.getType().getId(), block.getData()) && block.getType() != Material.IRON_PLATE && block.getType() != Material.GOLD_PLATE && block.getType() != Material.AIR)) {
+                    if ((WalkableBlocksUtil.noContainsWalkable(session.getParkour().getWalkableBlocks(), block.getType().getId(), block.getData()) && block.getType() != Material.HEAVY_WEIGHTED_PRESSURE_PLATE && block.getType() != Material.LIGHT_WEIGHTED_PRESSURE_PLATE && block.getType() != Material.AIR)) {
                         Bukkit.getScheduler().scheduleSyncDelayedTask(main, () -> {
                             if (main.getTimerManager().hasPlayerTimer(p)) {
 

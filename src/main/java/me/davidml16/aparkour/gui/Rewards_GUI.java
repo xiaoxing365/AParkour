@@ -55,8 +55,8 @@ public class Rewards_GUI implements Listener {
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Rewards.title").replaceAll("%parkour%", id));
 
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
-        ItemStack newReward = new ItemBuilder(Material.DOUBLE_PLANT, 1).setName(ColorManager.translate("&aCreate new reward")).toItemStack();
+        ItemStack edge = new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack newReward = new ItemBuilder(Material.LEGACY_DOUBLE_PLANT, 1).setName(ColorManager.translate("&aCreate new reward")).toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName(ColorManager.translate("&aBack to config")).toItemStack();
 
         for (Integer i : borders) {
@@ -105,13 +105,13 @@ public class Rewards_GUI implements Listener {
         if (page > 0) {
             gui.setItem(18, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aPrevious page")).toItemStack());
         } else {
-            gui.setItem(18, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(18, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (rewards.size() > (page + 1) * 21) {
             gui.setItem(26, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aNext page")).toItemStack());
         } else {
-            gui.setItem(26, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(26, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (rewards.size() > 21) rewards = rewards.subList(page * 21, ((page * 21) + 21) > rewards.size() ? rewards.size() : (page * 21) + 21);
@@ -130,7 +130,7 @@ public class Rewards_GUI implements Listener {
                                 ColorManager.translate("&eClick to remove! ")).toItemStack());
             }
         } else {
-            gui.setItem(22, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny rewards selected")).setLore(
+            gui.setItem(22, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny rewards selected")).setLore(
                     "",
                     ColorManager.translate(" &7You dont have any "),
                     ColorManager.translate(" &7reward selected. "),

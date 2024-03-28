@@ -17,6 +17,7 @@ import me.davidml16.aparkour.handlers.*;
 import me.davidml16.aparkour.managers.*;
 import me.davidml16.aparkour.tasks.ReturnTask;
 import me.davidml16.aparkour.utils.*;
+import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
@@ -25,8 +26,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
+import me.filoghost.holographicdisplays.api.hologram.Hologram;
 
 import me.davidml16.aparkour.commands.TabCompleter_AParkour;
 import me.davidml16.aparkour.commands.Command_AParkour;
@@ -35,7 +35,7 @@ import me.davidml16.aparkour.tasks.HologramTask;
 public class Main extends JavaPlugin {
 
     public static ConsoleCommandSender log;
-    private static Main instance;
+    private Main instance;
 
     private PlayerStats_GUI statsGUI;
     private MainConfig_GUI configGUI;
@@ -254,9 +254,11 @@ public class Main extends JavaPlugin {
         pluginManager.removePlayersFromParkour();
 
         if(isHologramsEnabled()) {
-            for (Hologram hologram : HologramsAPI.getHolograms(this)) {
-                hologram.delete();
-            }
+            HolographicDisplaysAPI.get(this).getHolograms().forEach(
+                    hologram -> {
+                        hologram.delete();
+                    }
+            );
         }
 
         hologramTask.stop();
@@ -276,7 +278,7 @@ public class Main extends JavaPlugin {
 
     public boolean vaultEnabled() { return chat != null && getConfig().getBoolean("UseVaultInHolograms"); }
 
-    public static Main getInstance() { return instance; }
+    public Main getInstance() { return instance; }
 
     public PlayerStats_GUI getStatsGUI() {
         return statsGUI;

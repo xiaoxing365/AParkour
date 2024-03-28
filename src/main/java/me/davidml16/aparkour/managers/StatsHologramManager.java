@@ -1,26 +1,35 @@
 package me.davidml16.aparkour.managers;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import me.davidml16.aparkour.data.Parkour;
+import me.filoghost.holographicdisplays.api.Position;
+import me.filoghost.holographicdisplays.api.hologram.HologramLines;
+import me.filoghost.holographicdisplays.api.hologram.line.HologramLine;
+import me.filoghost.holographicdisplays.api.hologram.line.ItemHologramLine;
+import me.filoghost.holographicdisplays.api.placeholder.*;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
-import com.gmail.filoghost.holographicdisplays.api.VisibilityManager;
-import com.gmail.filoghost.holographicdisplays.api.line.TextLine;
+import me.filoghost.holographicdisplays.api.hologram.Hologram;
+import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
+import me.filoghost.holographicdisplays.api.hologram.VisibilitySettings;
+import me.filoghost.holographicdisplays.api.hologram.line.TextHologramLine;
 
 import me.davidml16.aparkour.Main;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import static me.filoghost.holographicdisplays.api.hologram.VisibilitySettings.Visibility.HIDDEN;
 
 public class StatsHologramManager {
 
-	private Main main;
-	public StatsHologramManager(Main main) {
-		this.main = main;
-	}
-
+	Main main = (Main) Main.getProvidingPlugin(Main.class);
 	public void loadStatsHolograms(Player p) {
 		if (main.isHologramsEnabled()) {
 			for (String parkour : main.getParkourHandler().getParkours().keySet()) {
@@ -28,12 +37,136 @@ public class StatsHologramManager {
 			}
 		}
 	}
-	
+
+	HologramLines hologramLines = new HologramLines() {
+		@Override
+		public @NotNull TextHologramLine appendText(@Nullable String s) {
+			return null;
+		}
+
+		@Override
+		public @NotNull ItemHologramLine appendItem(@Nullable ItemStack itemStack) {
+			return null;
+		}
+
+		@Override
+		public @NotNull TextHologramLine insertText(int i, @Nullable String s) {
+			return null;
+		}
+
+		@Override
+		public @NotNull ItemHologramLine insertItem(int i, @NotNull ItemStack itemStack) {
+			return null;
+		}
+
+		@Override
+		public @NotNull HologramLine get(int i) {
+			return null;
+		}
+
+		@Override
+		public void remove(int i) {
+
+		}
+
+		@Override
+		public boolean remove(@NotNull HologramLine hologramLine) {
+			return false;
+		}
+
+		@Override
+		public void clear() {
+
+		}
+
+		@Override
+		public int size() {
+			return 0;
+		}
+
+		@Override
+		public double getHeight() {
+			return 0;
+		}
+	};
+
+	HolographicDisplaysAPI api = new HolographicDisplaysAPI() {
+		@Override
+		public @NotNull Hologram createHologram(@NotNull Location location) {
+			return null;
+		}
+
+		@Override
+		public @NotNull Hologram createHologram(@NotNull Position position) {
+			return null;
+		}
+
+		@Override
+		public @NotNull Collection<Hologram> getHolograms() {
+			return null;
+		}
+
+		@Override
+		public void deleteHolograms() {
+
+		}
+
+		@Override
+		public void registerGlobalPlaceholder(@NotNull String s, int i, @NotNull GlobalPlaceholderReplaceFunction globalPlaceholderReplaceFunction) {
+
+		}
+
+		@Override
+		public void registerGlobalPlaceholder(@NotNull String s, @NotNull GlobalPlaceholder globalPlaceholder) {
+
+		}
+
+		@Override
+		public void registerGlobalPlaceholderFactory(@NotNull String s, @NotNull GlobalPlaceholderFactory globalPlaceholderFactory) {
+
+		}
+
+		@Override
+		public void registerIndividualPlaceholder(@NotNull String s, int i, @NotNull IndividualPlaceholderReplaceFunction individualPlaceholderReplaceFunction) {
+
+		}
+
+		@Override
+		public void registerIndividualPlaceholder(@NotNull String s, @NotNull IndividualPlaceholder individualPlaceholder) {
+
+		}
+
+		@Override
+		public void registerIndividualPlaceholderFactory(@NotNull String s, @NotNull IndividualPlaceholderFactory individualPlaceholderFactory) {
+
+		}
+
+		@Override
+		public boolean isRegisteredPlaceholder(@NotNull String s) {
+			return false;
+		}
+
+		@Override
+		public @NotNull Collection<String> getRegisteredPlaceholders() {
+			return null;
+		}
+
+		@Override
+		public void unregisterPlaceholder(@NotNull String s) {
+
+		}
+
+		@Override
+		public void unregisterPlaceholders() {
+
+		}
+	};
+
 	public void loadStatsHologram(Player p, String id) {
 		if (main.isHologramsEnabled()) {
 			Parkour parkour = main.getParkourHandler().getParkours().get(id);
 			if(parkour.getStatsHologram() != null) {
-				List<String> lines = new ArrayList<String>();
+				List<String> lines = new ArrayList<>();
 				lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line1"));
 				lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line2"));
 
@@ -43,14 +176,17 @@ public class StatsHologramManager {
 							.replaceAll("%parkour%", parkour.getName()));
 				}
 
-				Hologram hologram = HologramsAPI.createHologram(main, parkour.getStatsHologram().clone().add(0.5D, 2.0D, 0.5D));
-				VisibilityManager visibilityManager = hologram.getVisibilityManager();
 
-				visibilityManager.showTo(p);
-				visibilityManager.setVisibleByDefault(false);
+				Hologram hologram = api.createHologram(parkour.getStatsHologram().clone().add(0.5D, 2.0D, 0.5D));
 
-				hologram.insertTextLine(0, lines.get(0));
-				hologram.insertTextLine(1, lines.get(1));
+				VisibilitySettings visibilitySettings = hologram.getVisibilitySettings();
+
+				visibilitySettings.isVisibleTo(p);
+				visibilitySettings.setGlobalVisibility(HIDDEN);
+
+
+				hologramLines.insertText(0, lines.get(0));
+				hologramLines.insertText(1, lines.get(1));
 
 				main.getPlayerDataHandler().getData(p).getHolograms().put(parkour.getId(), hologram);
 			}
@@ -78,8 +214,8 @@ public class StatsHologramManager {
 
 				List<String> lines = getLines(parkour, p, bestTime);
 
-				((TextLine) hologram.getLine(0)).setText(lines.get(0));
-				((TextLine) hologram.getLine(1)).setText(lines.get(1));
+				hologramLines.insertText(0,lines.get(0));
+				hologramLines.insertText(1,lines.get(1));
 			}
 		}
 	}
@@ -139,9 +275,11 @@ public class StatsHologramManager {
 
 	public void reloadStatsHolograms() {
 		if (main.isHologramsEnabled()) {
-			for (Hologram hologram : HologramsAPI.getHolograms(main)) {
-				hologram.delete();
-			}
+			HolographicDisplaysAPI.get(main).getHolograms().forEach(
+					hologram -> {
+						hologram.delete();
+					}
+			);
 		}
 	}
 

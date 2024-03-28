@@ -1,8 +1,8 @@
 package me.davidml16.aparkour.managers;
 
-import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
-import com.gmail.filoghost.holographicdisplays.api.line.TextLine;
+import me.filoghost.holographicdisplays.api.hologram.Hologram;
+import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
+import me.filoghost.holographicdisplays.api.hologram.line.TextHologramLine;
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.LeaderboardEntry;
 import me.davidml16.aparkour.data.Parkour;
@@ -19,7 +19,7 @@ public class TopHologramManager {
 
     private HashMap<String, Hologram> holoHeader;
     private HashMap<String, Hologram> holoBody;
-    private HashMap<String, TextLine> holoFooter;
+    private HashMap<String, TextHologramLine> holoFooter;
 
     private int timeLeft;
     private int reloadInterval;
@@ -31,7 +31,7 @@ public class TopHologramManager {
         this.reloadInterval = reloadInterval;
         this.holoHeader = new HashMap<String, Hologram>();
         this.holoBody = new HashMap<String, Hologram>();
-        this.holoFooter = new HashMap<String, TextLine>();
+        this.holoFooter = new HashMap<String, TextHologramLine>();
     }
 
     public HashMap<String, Hologram> getHoloHeader() {
@@ -42,7 +42,7 @@ public class TopHologramManager {
         return holoBody;
     }
 
-    public HashMap<String, TextLine> getHoloFooter() {
+    public HashMap<String, TextHologramLine> getHoloFooter() {
         return holoFooter;
     }
 
@@ -78,17 +78,17 @@ public class TopHologramManager {
 
                 Bukkit.getScheduler().scheduleSyncDelayedTask(main, () -> {
                     if (parkour.getTopHologram() != null) {
-                        Hologram header = HologramsAPI.createHologram(main,
+                        Hologram header = HolographicDisplaysAPI.createHologram(main,
                                 parkour.getTopHologram().clone().add(0.5D, 4.5D, 0.5D));
                         header.appendTextLine(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Header.Line1").replaceAll("%parkour%", parkour.getName()));
                         header.appendTextLine(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Header.Line2").replaceAll("%parkour%", parkour.getName()));
 
-                        Hologram body = HologramsAPI.createHologram(main,
+                        Hologram body = HolographicDisplaysAPI.createHologram(main,
                                 parkour.getTopHologram().clone().add(0.5D, 3.75D, 0.5D));
 
-                        Hologram footer = HologramsAPI.createHologram(main,
+                        Hologram footer = HolographicDisplaysAPI.createHologram(main,
                                 parkour.getTopHologram().clone().add(0.5D, 1D, 0.5D));
                         footer.appendTextLine(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Footer.Line")
@@ -119,7 +119,7 @@ public class TopHologramManager {
 
                         holoHeader.put(id, header);
                         holoBody.put(id, body);
-                        holoFooter.put(id, (TextLine) footer.getLine(0));
+                        holoFooter.put(id, (TextHologramLine) footer.getText(0));
                     }
                 }, 20L);
             });
@@ -146,13 +146,13 @@ public class TopHologramManager {
                                     Hologram body = holoBody.get(parkour.getId());
                                     int i = 0;
                                     for (; i < leaderboard.size(); i++) {
-                                        ((TextLine) body.getLine(i)).setText(main.getLanguageHandler()
+                                        ((TextHologramLine) body.getLine(i)).setText(main.getLanguageHandler()
                                                 .getMessage("Holograms.Top.Body.Line").replaceAll("%position%", Integer.toString(i + 1))
                                                 .replaceAll("%player%", main.getPlayerDataHandler().getPlayerName(body.getWorld(), leaderboard.get(i).getName()))
                                                 .replaceAll("%time%", main.getTimerManager().millisToString(main.getLanguageHandler().getMessage("Timer.Formats.ParkourTimer"), leaderboard.get(i).getTime())));
                                     }
                                     for (int j = i; j < 10; j++) {
-                                        ((TextLine) body.getLine(j)).setText(main.getLanguageHandler()
+                                        ((TextHologramLine) body.getLine(j)).setText(main.getLanguageHandler()
                                                 .getMessage("Holograms.Top.Body.NoTime").replaceAll("%position%", Integer.toString(j + 1)));
                                     }
                                 }

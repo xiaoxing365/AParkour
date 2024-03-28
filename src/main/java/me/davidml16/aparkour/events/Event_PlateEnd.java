@@ -34,7 +34,7 @@ public class Event_PlateEnd implements Listener {
 		Action action = e.getAction();
 
 		if (action == Action.PHYSICAL) {
-			if (e.getClickedBlock().getType() == Material.GOLD_PLATE) {
+			if (e.getClickedBlock().getType() == Material.LIGHT_WEIGHTED_PRESSURE_PLATE) {
 
 				Parkour parkour = main.getParkourHandler().getParkourByLocation(e.getClickedBlock().getLocation());
 

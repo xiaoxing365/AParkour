@@ -54,7 +54,7 @@ public class PlayerStats_GUI implements Listener {
 
 		Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Stats.title"));
 
-		ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+		ItemStack edge = new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
 		ItemStack book = new ItemBuilder(Material.BOOK, 1).setName(ColorManager.translate("&a&l" + p.getName() + "'s statistics")).toItemStack();
 
 		for (Integer i : borders) {
@@ -64,13 +64,13 @@ public class PlayerStats_GUI implements Listener {
 		if (page > 0) {
 			gui.setItem(18, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aPrevious page")).toItemStack());
 		} else {
-			gui.setItem(18, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+			gui.setItem(18, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
 		}
 
 		if (parkours.size() > (page + 1) * 21) {
 			gui.setItem(26, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aNext page")).toItemStack());
 		} else {
-			gui.setItem(26, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+			gui.setItem(26, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
 		}
 
 		gui.setItem(4, book);
@@ -114,7 +114,7 @@ public class PlayerStats_GUI implements Listener {
 				gui.addItem(new ItemBuilder(parkour.getIcon()).setName(ColorManager.translate("&a&l" + parkour.getName())).setLore(lore).toItemStack());
 			}
 		} else {
-			gui.setItem(22, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&c")).toItemStack());
+			gui.setItem(22, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&c")).toItemStack());
 		}
 
 		Bukkit.getScheduler().runTaskLater(main, () -> opened.put(p.getUniqueId(), page), 1L);

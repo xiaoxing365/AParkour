@@ -10,23 +10,23 @@ public class PlateManager {
     public void loadPlates(Parkour parkour) {
         Block start = parkour.getStart().getLocation().getWorld().getBlockAt(parkour.getStart().getLocation());
         try {
-            if (start.getType() != Material.IRON_PLATE) {
-                start.setType(Material.IRON_PLATE);
+            if (start.getType() != Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
+                start.setType(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
             }
         } catch (NullPointerException ignored) {}
 
         try {
             Block end = parkour.getEnd().getLocation().getWorld().getBlockAt(parkour.getEnd().getLocation());
-            if(end.getType() != Material.GOLD_PLATE) {
-                end.setType(Material.GOLD_PLATE);
+            if(end.getType() != Material.LIGHT_WEIGHTED_PRESSURE_PLATE) {
+                end.setType(Material.LIGHT_WEIGHTED_PRESSURE_PLATE);
             }
         } catch (NullPointerException ignored) {}
 
         for(Location checkpoint : parkour.getCheckpointLocations()) {
             Block cp = checkpoint.getWorld().getBlockAt(checkpoint);
             try {
-                if(cp.getType() != Material.IRON_PLATE) {
-                    cp.setType(Material.IRON_PLATE);
+                if(cp.getType() != Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
+                    cp.setType(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
                 }
             } catch (NullPointerException ignored) {}
         }

@@ -23,7 +23,7 @@ public class Parkour {
     private Plate start;
     private Plate end;
 
-    private Location statsHologram;
+    private static Location statsHologram;
     private Location topHologram;
 
     private List<WalkableBlock> walkableBlocks;
@@ -89,7 +89,7 @@ public class Parkour {
         return end;
     }
 
-    public Location getStatsHologram() { return statsHologram; }
+    public static Location getStatsHologram() { return statsHologram; }
 
     public void setStatsHologram(Location statsHologram) { this.statsHologram = statsHologram; }
 

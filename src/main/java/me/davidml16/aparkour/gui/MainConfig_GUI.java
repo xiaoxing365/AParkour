@@ -58,36 +58,36 @@ public class MainConfig_GUI implements Listener {
         if(guis.containsKey(id)) return;
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Config.title").replaceAll("%parkour%", id));
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack edge = new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
 
         FileConfiguration config = main.getParkourHandler().getConfig(id);
 
         if(config.contains("parkour.spawn")) {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(19, new ItemBuilder(Material.BED, 1).setName(ColorManager.translate("&aSpawn location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(19, new ItemBuilder(Material.LEGACY_BED, 1).setName(ColorManager.translate("&aSpawn location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(19, new ItemBuilder(Material.BED, 1).setName(ColorManager.translate("&cSpawn location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(19, new ItemBuilder(Material.LEGACY_BED, 1).setName(ColorManager.translate("&cSpawn location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.start")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.IRON_PLATE, 1).setName(ColorManager.translate("&aStart plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.HEAVY_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&aStart plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.IRON_PLATE, 1).setName(ColorManager.translate("&cStart plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.HEAVY_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&cStart plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.end")) {
-            gui.setItem(12, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(21, new ItemBuilder(Material.GOLD_PLATE, 1).setName(ColorManager.translate("&aEnd plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(12, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(21, new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&aEnd plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(12, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(21, new ItemBuilder(Material.GOLD_PLATE, 1).setName(ColorManager.translate("&cEnd plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(12, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(21, new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&cEnd plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(main.getParkourHandler().getParkours().containsKey(id)) {
-            gui.setItem(14, new ItemBuilder(Material.PISTON_BASE, 1)
+            gui.setItem(14, new ItemBuilder(Material.PISTON, 1)
                     .setName(ColorManager.translate("&aWalkable blocks"))
                     .setLore(
                             "",
@@ -108,9 +108,9 @@ public class MainConfig_GUI implements Listener {
                                 ColorManager.translate("&eClick to config holograms! ")
                         ).toItemStack());
             } else {
-                gui.setItem(15, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cHolograms disabled")).toItemStack());
+                gui.setItem(15, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cHolograms disabled")).toItemStack());
             }
-            gui.setItem(16, new ItemBuilder(Material.SIGN, 1)
+            gui.setItem(16, new ItemBuilder(Material.LEGACY_SIGN, 1)
                     .setName(ColorManager.translate("&aTitles"))
                     .setLore(
                             "",
@@ -152,7 +152,7 @@ public class MainConfig_GUI implements Listener {
                             ColorManager.translate("&eClick to open miscellaneous! ")
                     ).toItemStack());
         } else {
-            ItemStack noSetup = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cParkour setup not valid")).toItemStack();
+            ItemStack noSetup = new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cParkour setup not valid")).toItemStack();
             gui.setItem(14, noSetup);
             gui.setItem(15, noSetup);
             gui.setItem(16, noSetup);
@@ -198,31 +198,31 @@ public class MainConfig_GUI implements Listener {
         FileConfiguration config = main.getParkourHandler().getConfig(id);
 
         if(config.contains("parkour.spawn")) {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(19, new ItemBuilder(Material.BED, 1).setName(ColorManager.translate("&aSpawn location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(19, new ItemBuilder(Material.LEGACY_BED, 1).setName(ColorManager.translate("&aSpawn location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(10, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(19, new ItemBuilder(Material.BED, 1).setName(ColorManager.translate("&cSpawn location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(10, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(19, new ItemBuilder(Material.LEGACY_BED, 1).setName(ColorManager.translate("&cSpawn location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.start")) {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.IRON_PLATE, 1).setName(ColorManager.translate("&aStart plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.HEAVY_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&aStart plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(11, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(20, new ItemBuilder(Material.IRON_PLATE, 1).setName(ColorManager.translate("&cStart plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(11, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(20, new ItemBuilder(Material.HEAVY_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&cStart plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(config.contains("parkour.end")) {
-            gui.setItem(12, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
-            gui.setItem(21, new ItemBuilder(Material.GOLD_PLATE, 1).setName(ColorManager.translate("&aEnd plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
+            gui.setItem(12, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 10).setName(ColorManager.translate("&a&l[+]")).toItemStack());
+            gui.setItem(21, new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&aEnd plate location")).setLore("", ColorManager.translate("&eClick to relocate location!")).toItemStack());
         } else {
-            gui.setItem(12, new ItemBuilder(Material.INK_SACK, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
-            gui.setItem(21, new ItemBuilder(Material.GOLD_PLATE, 1).setName(ColorManager.translate("&cEnd plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
+            gui.setItem(12, new ItemBuilder(Material.INK_SAC, 1).setDurability((short) 8).setName(ColorManager.translate("&c&l[-]")).toItemStack());
+            gui.setItem(21, new ItemBuilder(Material.LIGHT_WEIGHTED_PRESSURE_PLATE, 1).setName(ColorManager.translate("&cEnd plate location")).setLore("", ColorManager.translate("&eClick to set location!")).toItemStack());
         }
 
         if(main.getParkourHandler().getParkours().containsKey(id)) {
-            gui.setItem(14, new ItemBuilder(Material.PISTON_BASE, 1)
+            gui.setItem(14, new ItemBuilder(Material.PISTON, 1)
                     .setName(ColorManager.translate("&aWalkable blocks"))
                     .setLore(
                             "",
@@ -243,9 +243,9 @@ public class MainConfig_GUI implements Listener {
                                 ColorManager.translate("&eClick to config holograms! ")
                         ).toItemStack());
             } else {
-                gui.setItem(15, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cHolograms disabled")).toItemStack());
+                gui.setItem(15, new ItemBuilder(Material.LEGACY_STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cHolograms disabled")).toItemStack());
             }
-            gui.setItem(16, new ItemBuilder(Material.SIGN, 1)
+            gui.setItem(16, new ItemBuilder(Material.LEGACY_SIGN, 1)
                     .setName(ColorManager.translate("&aTitles"))
                     .setLore(
                             "",

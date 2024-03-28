@@ -59,8 +59,8 @@ public class Checkpoints_GUI implements Listener {
 
         Inventory gui = Bukkit.createInventory(null, 45, main.getLanguageHandler().getMessage("GUIs.Checkpoints.title").replaceAll("%parkour%", id));
 
-        ItemStack edge = new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
-        ItemStack newReward = new ItemBuilder(Material.DOUBLE_PLANT, 1).setName(ColorManager.translate("&aEdit checkpoints")).toItemStack();
+        ItemStack edge = new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack();
+        ItemStack newReward = new ItemBuilder(Material.LEGACY_DOUBLE_PLANT, 1).setName(ColorManager.translate("&aEdit checkpoints")).toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName(ColorManager.translate("&aBack to config")).toItemStack();
 
         for (Integer i : borders) {
@@ -109,13 +109,13 @@ public class Checkpoints_GUI implements Listener {
         if (page > 0) {
             gui.setItem(18, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aPrevious page")).toItemStack());
         } else {
-            gui.setItem(18, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(18, new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (checkpoints.size() > (page + 1) * 21) {
             gui.setItem(26, new ItemBuilder(Material.ENDER_PEARL, 1).setName(ColorManager.translate("&aNext page")).toItemStack());
         } else {
-            gui.setItem(26, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
+            gui.setItem(26, new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 7).setName("").toItemStack());
         }
 
         if (checkpoints.size() > 21) checkpoints = checkpoints.subList(page * 21, ((page * 21) + 21) > checkpoints.size() ? checkpoints.size() : (page * 21) + 21);
@@ -136,7 +136,7 @@ public class Checkpoints_GUI implements Listener {
                 iterator++;
             }
         } else {
-            gui.setItem(22, new ItemBuilder(Material.STAINED_GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny checkpoints selected")).setLore(
+            gui.setItem(22, new ItemBuilder(Material.GLASS_PANE, 1).setDurability((short) 14).setName(ColorManager.translate("&cAny checkpoints selected")).setLore(
                     "",
                     ColorManager.translate(" &7You dont have any "),
                     ColorManager.translate(" &7checkpoints selected. "),
@@ -198,7 +198,7 @@ public class Checkpoints_GUI implements Listener {
 
                 Location loc = parkour.getCheckpointLocations().get(checkpointID - 1);
                 Block block = loc.getWorld().getBlockAt(loc);
-                if(block.getType() == Material.IRON_PLATE) {
+                if(block.getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
                     block.setType(Material.AIR);
                 }
 

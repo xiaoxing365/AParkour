@@ -32,7 +32,7 @@ public class Event_PlateStart implements Listener {
         Action action = e.getAction();
 
         if (action == Action.PHYSICAL) {
-            if (e.getClickedBlock().getType() == Material.IRON_PLATE) {
+            if (e.getClickedBlock().getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE) {
 
                 Parkour parkour = main.getParkourHandler().getParkourByLocation(e.getClickedBlock().getLocation());
 
