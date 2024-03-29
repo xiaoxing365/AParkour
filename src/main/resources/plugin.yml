@@ -1,6 +1,8 @@
 name: AParkour
 version: ${project.version}
-author: DavidML16
+authors:
+    - DavidML16
+    - xiaoxing365
 main: me.davidml16.aparkour.Main
 softdepend: [HolographicDisplays, ProtocolLib, PlaceholderAPI, Vault, Multiverse-Core]
 commands:
