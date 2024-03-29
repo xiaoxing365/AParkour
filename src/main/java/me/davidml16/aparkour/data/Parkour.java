@@ -1,14 +1,13 @@
 package me.davidml16.aparkour.data;
 
-import java.util.*;
-
+import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.utils.ItemBuilder;
 import org.bukkit.Location;
-
-import me.davidml16.aparkour.Main;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.*;
 
 public class Parkour {
 

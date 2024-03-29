@@ -6,13 +6,7 @@ import me.davidml16.aparkour.data.Reward;
 import me.davidml16.aparkour.managers.ColorManager;
 import me.davidml16.aparkour.utils.Sounds;
 import org.bukkit.ChatColor;
-import org.bukkit.conversations.Conversation;
-import org.bukkit.conversations.ConversationAbandonedEvent;
-import org.bukkit.conversations.ConversationAbandonedListener;
-import org.bukkit.conversations.ConversationContext;
-import org.bukkit.conversations.ConversationFactory;
-import org.bukkit.conversations.FixedSetPrompt;
-import org.bukkit.conversations.Prompt;
+import org.bukkit.conversations.*;
 import org.bukkit.entity.Player;
 
 public class RewardMenu implements ConversationAbandonedListener, CommonPrompts {

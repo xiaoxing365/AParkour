@@ -1,10 +1,8 @@
 package me.davidml16.aparkour.events;
 
 import me.davidml16.aparkour.Main;
-import me.davidml16.aparkour.data.Parkour;
 import me.davidml16.aparkour.enums.CommandBlockType;
 import me.davidml16.aparkour.managers.ColorManager;
-import me.davidml16.aparkour.utils.ParkourItems;
 import me.davidml16.aparkour.utils.Sounds;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;

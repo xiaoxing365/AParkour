@@ -1,20 +1,18 @@
 package me.davidml16.aparkour.handlers;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.UUID;
-
 import me.davidml16.aparkour.Main;
+import me.davidml16.aparkour.data.Profile;
 import me.davidml16.aparkour.managers.ColorManager;
 import me.davidml16.aparkour.utils.RepeatingTask;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import me.davidml16.aparkour.data.Profile;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.scheduler.BukkitTask;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class PlayerDataHandler {
 

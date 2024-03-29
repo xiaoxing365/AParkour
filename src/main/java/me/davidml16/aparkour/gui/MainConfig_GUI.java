@@ -1,18 +1,11 @@
 package me.davidml16.aparkour.gui;
 
 import me.davidml16.aparkour.Main;
-import me.davidml16.aparkour.conversation.RenameMenu;
-import me.davidml16.aparkour.conversation.RewardMenu;
-import me.davidml16.aparkour.data.Parkour;
 import me.davidml16.aparkour.managers.ColorManager;
-import me.davidml16.aparkour.managers.PluginManager;
 import me.davidml16.aparkour.utils.ItemBuilder;
-import me.davidml16.aparkour.utils.LocationUtil;
 import me.davidml16.aparkour.utils.Sounds;
 import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -24,7 +17,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.UUID;
 
 public class MainConfig_GUI implements Listener {
 

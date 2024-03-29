@@ -1,13 +1,13 @@
 package me.davidml16.aparkour.utils;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class RandomFirework {
 	private static ArrayList<Color> colors = new ArrayList();

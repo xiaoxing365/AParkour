@@ -1,8 +1,7 @@
 package me.davidml16.aparkour.database;
 
-import me.davidml16.aparkour.database.types.Database;
-
 import me.davidml16.aparkour.Main;
+import me.davidml16.aparkour.database.types.Database;
 import me.davidml16.aparkour.database.types.MySQL;
 import me.davidml16.aparkour.database.types.SQLite;
 import me.davidml16.aparkour.managers.ColorManager;

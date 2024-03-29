@@ -1,13 +1,10 @@
 package me.davidml16.aparkour.managers;
 
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
-
-import me.davidml16.aparkour.data.Parkour;
+import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.utils.MillisecondConverter;
 import org.bukkit.entity.Player;
 
-import me.davidml16.aparkour.Main;
+import java.util.HashMap;
 
 public class TimerManager {
 	

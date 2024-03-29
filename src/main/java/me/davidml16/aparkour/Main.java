@@ -1,12 +1,8 @@
 package me.davidml16.aparkour;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Collections;
-
-import me.davidml16.aparkour.placeholders.PlaceholderHook;
 import me.davidml16.aparkour.api.ParkourAPI;
+import me.davidml16.aparkour.commands.Command_AParkour;
+import me.davidml16.aparkour.commands.TabCompleter_AParkour;
 import me.davidml16.aparkour.data.CommandBlocker;
 import me.davidml16.aparkour.database.DatabaseHandler;
 import me.davidml16.aparkour.database.types.Database;
@@ -15,6 +11,8 @@ import me.davidml16.aparkour.events.*;
 import me.davidml16.aparkour.gui.*;
 import me.davidml16.aparkour.handlers.*;
 import me.davidml16.aparkour.managers.*;
+import me.davidml16.aparkour.placeholders.PlaceholderHook;
+import me.davidml16.aparkour.tasks.HologramTask;
 import me.davidml16.aparkour.tasks.ReturnTask;
 import me.davidml16.aparkour.utils.*;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
@@ -26,16 +24,15 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.filoghost.holographicdisplays.api.hologram.Hologram;
-
-import me.davidml16.aparkour.commands.TabCompleter_AParkour;
-import me.davidml16.aparkour.commands.Command_AParkour;
-import me.davidml16.aparkour.tasks.HologramTask;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Collections;
 
 public class Main extends JavaPlugin {
 
     public static ConsoleCommandSender log;
-    private Main instance;
+    private static Main instance;
 
     private PlayerStats_GUI statsGUI;
     private MainConfig_GUI configGUI;
@@ -278,7 +275,7 @@ public class Main extends JavaPlugin {
 
     public boolean vaultEnabled() { return chat != null && getConfig().getBoolean("UseVaultInHolograms"); }
 
-    public Main getInstance() { return instance; }
+    public static Main getInstance() { return instance; }
 
     public PlayerStats_GUI getStatsGUI() {
         return statsGUI;

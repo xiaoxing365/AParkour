@@ -2,7 +2,6 @@ package me.davidml16.aparkour.gui;
 
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.Parkour;
-import me.davidml16.aparkour.data.Plate;
 import me.davidml16.aparkour.managers.ColorManager;
 import me.davidml16.aparkour.utils.ItemBuilder;
 import me.davidml16.aparkour.utils.Sounds;

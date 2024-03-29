@@ -1,35 +1,37 @@
 package me.davidml16.aparkour.handlers;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
+import me.davidml16.aparkour.Main;
+import me.davidml16.aparkour.data.Parkour;
+import me.davidml16.aparkour.data.Plate;
+import me.davidml16.aparkour.data.Reward;
+import me.davidml16.aparkour.data.WalkableBlock;
+import me.davidml16.aparkour.managers.ColorManager;
+import me.davidml16.aparkour.utils.ItemBuilder;
+import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
 import me.filoghost.holographicdisplays.api.Position;
 import me.filoghost.holographicdisplays.api.hologram.Hologram;
-import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
-import me.davidml16.aparkour.data.*;
-import me.davidml16.aparkour.utils.ItemBuilder;
 import me.filoghost.holographicdisplays.api.hologram.HologramLines;
 import me.filoghost.holographicdisplays.api.hologram.line.HologramLine;
 import me.filoghost.holographicdisplays.api.hologram.line.ItemHologramLine;
 import me.filoghost.holographicdisplays.api.hologram.line.TextHologramLine;
 import me.filoghost.holographicdisplays.api.placeholder.*;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
-import me.davidml16.aparkour.Main;
-import me.davidml16.aparkour.managers.ColorManager;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import static me.filoghost.holographicdisplays.api.HolographicDisplaysAPI.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
 public class ParkourHandler {
 

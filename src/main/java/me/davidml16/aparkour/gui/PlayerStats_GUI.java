@@ -1,14 +1,8 @@
 package me.davidml16.aparkour.gui;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-
+import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.LeaderboardEntry;
-import me.davidml16.aparkour.data.Pair;
-import me.davidml16.aparkour.data.Plate;
+import me.davidml16.aparkour.data.Parkour;
 import me.davidml16.aparkour.managers.ColorManager;
 import me.davidml16.aparkour.utils.ItemBuilder;
 import me.davidml16.aparkour.utils.Sounds;
@@ -22,8 +16,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import me.davidml16.aparkour.Main;
-import me.davidml16.aparkour.data.Parkour;
+import java.util.*;
 
 public class PlayerStats_GUI implements Listener {
 

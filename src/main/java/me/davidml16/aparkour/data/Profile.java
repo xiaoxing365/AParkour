@@ -1,18 +1,16 @@
 package me.davidml16.aparkour.data;
 
+import me.davidml16.aparkour.Main;
+import me.filoghost.holographicdisplays.api.hologram.Hologram;
+import org.bukkit.GameMode;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.UUID;
-
-import org.bukkit.GameMode;
-import org.bukkit.inventory.ItemStack;
-
-import me.filoghost.holographicdisplays.api.hologram.Hologram;
-
-import me.davidml16.aparkour.Main;
-import org.bukkit.potion.PotionEffect;
 
 public class Profile {
 

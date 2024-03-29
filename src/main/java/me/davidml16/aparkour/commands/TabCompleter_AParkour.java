@@ -1,17 +1,15 @@
 package me.davidml16.aparkour.commands;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import me.davidml16.aparkour.data.Parkour;
+import me.davidml16.aparkour.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-import me.davidml16.aparkour.Main;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class TabCompleter_AParkour implements TabCompleter {
 

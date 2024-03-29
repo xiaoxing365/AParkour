@@ -1,21 +1,17 @@
 package me.davidml16.aparkour.handlers;
 
-import java.io.File;
-import java.io.IOException;
+import me.davidml16.aparkour.Main;
+import me.davidml16.aparkour.data.Parkour;
+import me.davidml16.aparkour.data.Reward;
+import me.davidml16.aparkour.managers.ColorManager;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.permissions.Permission;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import me.davidml16.aparkour.data.Parkour;
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
-
-import me.davidml16.aparkour.Main;
-import me.davidml16.aparkour.data.Reward;
-import me.davidml16.aparkour.managers.ColorManager;
-import org.bukkit.permissions.Permission;
 
 public class RewardHandler {
 

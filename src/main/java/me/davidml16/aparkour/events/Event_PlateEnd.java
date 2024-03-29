@@ -5,7 +5,8 @@ import me.davidml16.aparkour.api.events.ParkourEndEvent;
 import me.davidml16.aparkour.data.Parkour;
 import me.davidml16.aparkour.data.ParkourSession;
 import me.davidml16.aparkour.data.Profile;
-import me.davidml16.aparkour.utils.*;
+import me.davidml16.aparkour.utils.RandomFirework;
+import me.davidml16.aparkour.utils.Sounds;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,7 +18,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Event_PlateEnd implements Listener {
 

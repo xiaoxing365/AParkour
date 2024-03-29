@@ -5,7 +5,6 @@ import me.davidml16.aparkour.api.events.ParkourStartEvent;
 import me.davidml16.aparkour.data.Parkour;
 import me.davidml16.aparkour.managers.ColorManager;
 import me.davidml16.aparkour.utils.Sounds;
-import me.davidml16.aparkour.utils.TitleUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

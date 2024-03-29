@@ -1,8 +1,7 @@
 package me.davidml16.aparkour.utils;
 
-import org.bukkit.entity.Player;
-
 import me.davidml16.aparkour.Main;
+import org.bukkit.entity.Player;
 
 public class SoundUtil {
 

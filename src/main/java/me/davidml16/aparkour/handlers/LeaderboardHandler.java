@@ -2,10 +2,7 @@ package me.davidml16.aparkour.handlers;
 
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.LeaderboardEntry;
-import me.davidml16.aparkour.data.Parkour;
-import org.bukkit.Bukkit;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

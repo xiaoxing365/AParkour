@@ -1,8 +1,7 @@
 package me.davidml16.aparkour.tasks;
 
-import org.bukkit.Bukkit;
-
 import me.davidml16.aparkour.Main;
+import org.bukkit.Bukkit;
 
 public class HologramTask {
 	
