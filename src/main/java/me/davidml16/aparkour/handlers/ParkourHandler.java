@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-import me.davidml16.aparkour.hologramhelpers.CustomHologramLines;
 import me.filoghost.holographicdisplays.api.Position;
 import me.filoghost.holographicdisplays.api.hologram.Hologram;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
@@ -29,6 +28,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import static me.filoghost.holographicdisplays.api.HolographicDisplaysAPI.*;
 
 public class ParkourHandler {
 
@@ -155,9 +156,9 @@ public class ParkourHandler {
 					parkours.put(id, parkour);
 
 					if (!config.contains("parkour.icon")) {
-						config.set("parkour.icon", "389:0");
+						config.set("parkour.icon", "item_frame");
 					} else {
-						int itemID = Integer.parseInt(config.getString("parkour.icon").split(":")[0]);
+						String itemID = config.getString("parkour.icon").split(":")[0];
 						byte itemData = Byte.parseByte(config.getString("parkour.icon").split(":")[1]);
 						parkour.setIcon(new ItemBuilder(Material.getMaterial(itemID), 1).setDurability(itemData).toItemStack());
 					}
@@ -280,7 +281,7 @@ public class ParkourHandler {
 	HologramLines hologramLines = new HologramLines() {
 		@Override
 		public @NotNull TextHologramLine appendText(@Nullable String s) {
-			;
+			return null;
 		}
 
 		@Override
@@ -331,8 +332,10 @@ public class ParkourHandler {
 
 	public void loadHolograms() {
 		if(main.isHologramsEnabled()) {
-            Hologram hologram = HolographicDisplaysAPI.createHologram(this.parkour.getStart().getLocation().clone().add(0.5D, this.parkour.getStart().getHologramDistance(), 0.5D));
-			for (Parkour parkour : parkours.values()) {
+            Parkour parkour = new Parkour();
+			Location location= parkour.getStart().getLocation().clone().add(0.5D, parkour.getStart().getHologramDistance(), 0.5D);
+            Hologram hologram = api.createHologram(location);
+            parkours.values().forEach(parkour1 ->  {
 				if (parkour.getStart().isHologramEnabled()) {
 					hologramLines.appendText(main.getLanguageHandler().getMessage("Holograms.Plates.Start.Line1"));
 					hologramLines.appendText(main.getLanguageHandler().getMessage("Holograms.Plates.Start.Line2"));
@@ -356,7 +359,7 @@ public class ParkourHandler {
 						}
 					}
 				}
-			}
+			});
 		}
 	}
 
@@ -556,7 +559,7 @@ public class ParkourHandler {
 				Material material = null;
 				material = Material.getMaterial(String.valueOf(Integer.parseInt(parts[0])));
 				byte data = parts.length == 2 ? Byte.parseByte(parts[1]) : 0;
-				WalkableBlock walkableBlockk = new WalkableBlock(Integer.parseInt(parts[0]), data);
+				WalkableBlock walkableBlockk = new WalkableBlock(parts[0], data);
 				if (material != null && !walkable.contains(walkableBlockk)) {
 					walkable.add(walkableBlockk);
 				}

@@ -20,7 +20,7 @@ public class Parkour {
 
     private ItemStack icon;
 
-    private Plate start;
+    private static Plate start;
     private Plate end;
 
     private static Location statsHologram;
@@ -62,9 +62,13 @@ public class Parkour {
         this.startTitleEnabled = false;
         this.endTitleEnabled = false;
         this.checkpointTitleEnabled = false;
-        this.icon = new ItemBuilder(Material.getMaterial(389), 1).toItemStack();
+        this.icon = new ItemBuilder(Material.getMaterial("minecraft:item_frame"), 1).toItemStack();
         this.playing = new HashSet<>();
         this.requireCheckpoints = true;
+    }
+
+    public Parkour() {
+
     }
 
     public String getId() {
@@ -81,7 +85,7 @@ public class Parkour {
         return spawn;
     }
 
-    public Plate getStart() {
+    public static Plate getStart() {
         return start;
     }
 

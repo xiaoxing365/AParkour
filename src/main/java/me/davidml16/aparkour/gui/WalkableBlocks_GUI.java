@@ -175,7 +175,7 @@ public class WalkableBlocks_GUI implements Listener {
 
                     if (e.getCurrentItem().getType() == Material.AIR) return;
 
-                    int itemId = e.getCurrentItem().getTypeId();
+                    String itemId = e.getCurrentItem().toString();
                     byte data = e.getCurrentItem().getData().getData();
 
                     if (e.getCurrentItem().getType().name().contains("PLATE")) {
@@ -200,7 +200,7 @@ public class WalkableBlocks_GUI implements Listener {
 
                 if (parkour.getWalkableBlocks().size() == 0) return;
 
-                int itemId = e.getCurrentItem().getTypeId();
+                String itemId = e.getCurrentItem().toString();
                 byte data = e.getCurrentItem().getData().getData();
 
                 p.sendMessage(ColorManager.translate(main.getLanguageHandler().getPrefix()

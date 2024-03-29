@@ -5,7 +5,7 @@ import org.bukkit.Location;
 
 public class Plate {
 
-    private Location location;
+    private static Location location;
 
     private Hologram hologram;
     private boolean hologramEnabled;

@@ -19,20 +19,20 @@ public class WalkableBlock {
             397, 144
     );
 
-    private int id;
+    private String id;
     private byte data;
 
     private boolean directional;
     private boolean skull;
 
-    public WalkableBlock(int id, byte data) {
+    public WalkableBlock(String id, byte data) {
         this.id = id;
         this.data = data;
         this.directional = directionablesIDs.contains(id);
         this.skull = skullIDs.contains(id);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
