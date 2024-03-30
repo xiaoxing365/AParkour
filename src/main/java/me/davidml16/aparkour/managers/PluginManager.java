@@ -6,13 +6,11 @@ import me.davidml16.aparkour.enums.CommandBlockType;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class PluginManager {
-
-    private Main main;
-    public PluginManager(Main main) {
-        this.main = main;
-    }
+    private Main main = new Main();
 
     public void removePlayersFromParkour() {
         for (Player pl : Bukkit.getOnlinePlayers()) {

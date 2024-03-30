@@ -1,10 +1,14 @@
 name: AParkour
 version: ${project.version}
+api-version: 1.13
 authors:
     - DavidML16
     - xiaoxing365
 main: me.davidml16.aparkour.Main
-softdepend: [HolographicDisplays, ProtocolLib, PlaceholderAPI, Vault, Multiverse-Core]
+depend:
+    - HolographicDisplays
+    - ProtocolLib
+softdepend: [PlaceholderAPI, Vault, Multiverse-Core]
 commands:
     aparkour:
         description: Use this to see all commands.

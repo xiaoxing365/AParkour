@@ -4,6 +4,7 @@ import me.davidml16.aparkour.api.ParkourAPI;
 import me.davidml16.aparkour.commands.Command_AParkour;
 import me.davidml16.aparkour.commands.TabCompleter_AParkour;
 import me.davidml16.aparkour.data.CommandBlocker;
+import me.davidml16.aparkour.data.ParkourSession;
 import me.davidml16.aparkour.database.DatabaseHandler;
 import me.davidml16.aparkour.database.types.Database;
 import me.davidml16.aparkour.enums.CommandBlockType;
@@ -16,6 +17,7 @@ import me.davidml16.aparkour.tasks.HologramTask;
 import me.davidml16.aparkour.tasks.ReturnTask;
 import me.davidml16.aparkour.utils.*;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
+import me.filoghost.holographicdisplays.api.hologram.Hologram;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
@@ -142,7 +144,7 @@ public class Main extends JavaPlugin {
 
         timerManager = new TimerManager(this);
 
-        pluginManager = new PluginManager(this);
+        pluginManager = new PluginManager();
 
         statsGUI = new PlayerStats_GUI(this);
 
@@ -173,7 +175,7 @@ public class Main extends JavaPlugin {
         topHologramManager.loadTopHolograms();
         topHologramManager.restartTimeLeft();
 
-        hologramTask = new HologramTask(this);
+        hologramTask = new HologramTask();
         hologramTask.start();
 
         returnTask = new ReturnTask(this);
@@ -181,7 +183,7 @@ public class Main extends JavaPlugin {
 
         soundUtil = new SoundUtil(this);
         locationUtil = new LocationUtil(this);
-        titleUtil = new TitleUtil(this);
+        titleUtil = new TitleUtil();
 
         commandBlocker = new CommandBlocker();
         commandBlocker.setCommands(getConfig().getStringList("CommandBlocker.Commands"));
@@ -215,7 +217,7 @@ public class Main extends JavaPlugin {
         log.sendMessage("");
         log.sendMessage(ColorManager.translate("  &eAParkour Enabled!"));
         log.sendMessage(ColorManager.translate("    &aVersion: &b" + pdf.getVersion()));
-        log.sendMessage(ColorManager.translate("    &aAuthor: &b" + pdf.getAuthors().get(0)));
+        log.sendMessage(ColorManager.translate("    &aAuthor: &b" + pdf.getAuthors()));
         log.sendMessage("");
 
         if(getConfig().getBoolean("CheckUpdates")) {
@@ -245,21 +247,19 @@ public class Main extends JavaPlugin {
         log.sendMessage("");
         log.sendMessage(ColorManager.translate("  &eAParkour Disabled!"));
         log.sendMessage(ColorManager.translate("    &aVersion: &b" + pdf.getVersion()));
-        log.sendMessage(ColorManager.translate("    &aAuthor: &b" + pdf.getAuthors().get(0)));
+        log.sendMessage(ColorManager.translate("    &aAuthor: &b" + pdf.getAuthors()));
         log.sendMessage("");
 
-        pluginManager.removePlayersFromParkour();
+        removePlayersFromParkour();
 
         if(isHologramsEnabled()) {
             HolographicDisplaysAPI.get(this).getHolograms().forEach(
-                    hologram -> {
-                        hologram.delete();
-                    }
+                    Hologram::delete
             );
         }
 
-        hologramTask.stop();
-        databaseHandler.getDatabase().close();
+        //hologramTask.stop();
+        //databaseHandler.getDatabase().close();
     }
 
     private void setupChat() {
@@ -268,6 +268,17 @@ public class Main extends JavaPlugin {
             chat = rsp.getProvider();
         } catch (NullPointerException e) {
             chat = null;
+        }
+    }
+
+    private void removePlayersFromParkour() {
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            if(this.getTimerManager().hasPlayerTimer(pl)) {
+                ParkourSession session = this.getSessionHandler().getSession(pl);
+                pl.teleport(session.getParkour().getSpawn());
+                this.getParkourHandler().resetPlayer(pl);
+                this.getSoundUtil().playFall(pl);
+            }
         }
     }
 

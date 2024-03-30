@@ -7,10 +7,7 @@ public class HologramTask {
 	
 	private int id;
 
-	private Main main;
-	public HologramTask(Main main) {
-		this.main = main;
-	}
+	private Main main = new Main();
 
 	class Task implements Runnable {
 		@Override

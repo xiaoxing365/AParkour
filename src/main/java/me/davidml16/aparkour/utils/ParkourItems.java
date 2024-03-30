@@ -19,7 +19,7 @@ public class ParkourItems {
         String id = main.getConfig().getString("Items.Restart.ID");
         String name = ColorManager.translate(main.getConfig().getString("Items.Restart.Name"));
         String lore = ColorManager.translate(main.getConfig().getString("Items.Restart.Lore"));
-        returnItem = new ItemBuilder(Material.getMaterial(id), 1).setName(name).setLore(lore).toItemStack();
+        returnItem = new ItemBuilder(Material.matchMaterial(id), 1).setName(name).setLore(lore).toItemStack();
     }
 
     public void loadCheckpointItem() {

@@ -61,7 +61,7 @@ public class Parkour {
         this.startTitleEnabled = false;
         this.endTitleEnabled = false;
         this.checkpointTitleEnabled = false;
-        this.icon = new ItemBuilder(Material.getMaterial("minecraft:item_frame"), 1).toItemStack();
+        this.icon = new ItemBuilder(Material.getMaterial("LEGACY_ITEM_FRAME"), 1).toItemStack();
         this.playing = new HashSet<>();
         this.requireCheckpoints = true;
     }

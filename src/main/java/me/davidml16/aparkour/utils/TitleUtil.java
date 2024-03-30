@@ -23,10 +23,7 @@ import java.util.Objects;
 
 public class TitleUtil implements Listener {
 
-    private Main main;
-    public TitleUtil(Main main) {
-        this.main = main;
-    }
+    private Main main = new Main();
 
     public void sendStartTitle(Player player, Parkour parkour) {
         if (parkour.isStartTitleEnabled()) {

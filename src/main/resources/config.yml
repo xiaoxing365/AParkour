@@ -2,6 +2,7 @@
 #                         #
 #   NAME:     APARKOUR    #
 #   AUTHOR:   DavidML16   #
+#             xiaoxing365 #
 #                         #
 #-------------------------#
 
@@ -11,8 +12,8 @@ CheckUpdates: true
 
 
 # LANGUAGE OF THE PLUGIN
-# AVAILABLES BY DEFAULT: EN, ES
-Language: EN
+# AVAILABLES BY DEFAULT: EN, ES, CN
+Language: CN
 
 
 # DATABASE DETAILS
@@ -92,11 +93,11 @@ ActionBarTimer:
 Items:
     Enabled: true
     Restart:
-        ID: 166
+        ID: "BARRIER"
         Name: '&4&lRestart'
         Lore: '&7Return to the start of the course to start again!'
     Checkpoint:
-        ID: 148
+        ID: "HEAVY_WEIGHTED_PRESSURE_PLATE"
         Name: '&a&lCheckpoint'
         Lore: '&7Return to your last checkpoint of the course!'
 
