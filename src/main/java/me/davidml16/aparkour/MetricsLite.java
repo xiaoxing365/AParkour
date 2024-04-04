@@ -71,10 +71,10 @@ public class MetricsLite {
 	private static String serverUUID;
 
 	// The plugin
-	private final Plugin plugin;
+	private Plugin plugin;
 
 	// The plugin id
-	private final int pluginId;
+	private int pluginId;
 
 	/**
 	 * Class constructor.
@@ -84,7 +84,7 @@ public class MetricsLite {
 	 *                 <a href="https://bstats.org/what-is-my-plugin-id">What is my
 	 *                 plugin id?</a>
 	 */
-	public MetricsLite(Plugin plugin, int pluginId) {
+	public MetricsLite(final Plugin plugin, final int pluginId) {
 		if (plugin == null) {
 			throw new IllegalArgumentException("Plugin cannot be null!");
 		}
@@ -95,10 +95,8 @@ public class MetricsLite {
 		File bStatsFolder = new File(plugin.getDataFolder().getParentFile(), "bStats");
 		File configFile = new File(bStatsFolder, "config.yml");
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
-
 		// Check if the config file exists
 		if (!config.isSet("serverUuid")) {
-
 			// Add default values
 			config.addDefault("enabled", true);
 			// Every server gets it's unique random id.

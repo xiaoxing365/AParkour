@@ -8,7 +8,7 @@ import me.davidml16.aparkour.managers.ColorManager;
 
 public class DatabaseHandler {
 
-	private Database database;
+	private static Database database;
 
 	private Main main;
 
@@ -31,6 +31,6 @@ public class DatabaseHandler {
 		database.open();
 	}
 
-	public Database getDatabase() { return database; }
+	public static Database getDatabase() { return database; }
 
 }

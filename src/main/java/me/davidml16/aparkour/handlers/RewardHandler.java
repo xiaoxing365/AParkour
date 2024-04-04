@@ -23,7 +23,7 @@ public class RewardHandler {
 	public void loadRewards() {
 		Main.log.sendMessage(ColorManager.translate("  &eLoading rewards:"));
 		for(Parkour parkour : main.getParkourHandler().getParkours().values()) {
-			List<Reward> rewards = new ArrayList<Reward>();
+			List<Reward> rewards = new ArrayList<>();
 			FileConfiguration config = main.getParkourHandler().getConfig(parkour.getId());
 			if (config.contains("parkour.rewards")) {
 				if (config.getConfigurationSection("parkour.rewards") != null) {

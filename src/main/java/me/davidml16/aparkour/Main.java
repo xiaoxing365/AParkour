@@ -46,7 +46,7 @@ public class Main extends JavaPlugin {
     private Miscellaneous_GUI miscellaneousGUI;
     private PlayParkour_GUI playParkourGUI;
 
-    private HologramTask hologramTask;
+    private HologramTask hologramTask = new HologramTask();
     private ReturnTask returnTask;
 
     private TimerManager timerManager;
@@ -60,7 +60,7 @@ public class Main extends JavaPlugin {
     private CheckpointsHandler checkpointsHandler;
     private LanguageHandler languageHandler;
     private PlayerDataHandler playerDataHandler;
-    private DatabaseHandler databaseHandler;
+    private DatabaseHandler databaseHandler = new DatabaseHandler(this);
     private SessionHandler sessionHandler;
     private LeaderboardHandler leaderboardHandler;
 
@@ -94,6 +94,7 @@ public class Main extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         reloadConfig();
 
         hologramsEnabled = getConfig().getBoolean("Hologram.Enabled");
@@ -120,7 +121,7 @@ public class Main extends JavaPlugin {
         languageHandler = new LanguageHandler(this, getConfig().getString("Language").toLowerCase());
         languageHandler.pushMessages();
 
-        statsHologramManager = new StatsHologramManager(this);
+        statsHologramManager = new StatsHologramManager();
 
         checkpointsHandler = new CheckpointsHandler();
 
@@ -133,7 +134,7 @@ public class Main extends JavaPlugin {
         rewardHandler = new RewardHandler(this);
         rewardHandler.loadRewards();
 
-        databaseHandler = new DatabaseHandler(this);
+
         databaseHandler.openConnection();
         databaseHandler.getDatabase().loadTables();
 
@@ -175,7 +176,7 @@ public class Main extends JavaPlugin {
         topHologramManager.loadTopHolograms();
         topHologramManager.restartTimeLeft();
 
-        hologramTask = new HologramTask();
+
         hologramTask.start();
 
         returnTask = new ReturnTask(this);
@@ -258,8 +259,9 @@ public class Main extends JavaPlugin {
             );
         }
 
-        //hologramTask.stop();
-        //databaseHandler.getDatabase().close();
+        hologramTask.stop();
+
+        databaseHandler.getDatabase().close();
     }
 
     private void setupChat() {

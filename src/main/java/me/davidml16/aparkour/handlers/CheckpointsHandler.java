@@ -11,8 +11,8 @@ import java.util.List;
 public class CheckpointsHandler {
 
     public void loadCheckpoints(Parkour parkour, FileConfiguration config) {
-        List<Plate> checkpoints = new ArrayList<Plate>();
-        List<Location> checkpointLocations = new ArrayList<Location>();
+        List<Plate> checkpoints = new ArrayList<>();
+        List<Location> checkpointLocations = new ArrayList<>();
         if (config.contains("parkour.checkpoints")) {
             if (config.getConfigurationSection("parkour.checkpoints") != null) {
                 for (String id : config.getConfigurationSection("parkour.checkpoints").getKeys(false)) {

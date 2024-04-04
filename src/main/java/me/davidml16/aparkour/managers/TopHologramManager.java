@@ -1,5 +1,8 @@
 package me.davidml16.aparkour.managers;
 
+import me.davidml16.aparkour.APIImplementer.HDAPIImplementer;
+import me.davidml16.aparkour.APIImplementer.HDImplementer;
+import me.davidml16.aparkour.APIImplementer.HDLineImplementer;
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.LeaderboardEntry;
 import me.davidml16.aparkour.data.Parkour;
@@ -77,129 +80,12 @@ public class TopHologramManager {
         }
     }
 
-    HolographicDisplaysAPI api = new HolographicDisplaysAPI() {
-        @Override
-        public @NotNull Hologram createHologram(@NotNull Location location) {
-            return null;
-        }
 
-        @Override
-        public @NotNull Hologram createHologram(@NotNull Position position) {
-            return null;
-        }
-
-        @Override
-        public @NotNull Collection<Hologram> getHolograms() {
-            return null;
-        }
-
-        @Override
-        public void deleteHolograms() {
-
-        }
-
-        @Override
-        public void registerGlobalPlaceholder(@NotNull String s, int i, @NotNull GlobalPlaceholderReplaceFunction globalPlaceholderReplaceFunction) {
-
-        }
-
-        @Override
-        public void registerGlobalPlaceholder(@NotNull String s, @NotNull GlobalPlaceholder globalPlaceholder) {
-
-        }
-
-        @Override
-        public void registerGlobalPlaceholderFactory(@NotNull String s, @NotNull GlobalPlaceholderFactory globalPlaceholderFactory) {
-
-        }
-
-        @Override
-        public void registerIndividualPlaceholder(@NotNull String s, int i, @NotNull IndividualPlaceholderReplaceFunction individualPlaceholderReplaceFunction) {
-
-        }
-
-        @Override
-        public void registerIndividualPlaceholder(@NotNull String s, @NotNull IndividualPlaceholder individualPlaceholder) {
-
-        }
-
-        @Override
-        public void registerIndividualPlaceholderFactory(@NotNull String s, @NotNull IndividualPlaceholderFactory individualPlaceholderFactory) {
-
-        }
-
-        @Override
-        public boolean isRegisteredPlaceholder(@NotNull String s) {
-            return false;
-        }
-
-        @Override
-        public @NotNull Collection<String> getRegisteredPlaceholders() {
-            return null;
-        }
-
-        @Override
-        public void unregisterPlaceholder(@NotNull String s) {
-
-        }
-
-        @Override
-        public void unregisterPlaceholders() {
-
-        }
-    };
-
-    HologramLines hologramLines = new HologramLines() {
-        @Override
-        public @NotNull TextHologramLine appendText(@Nullable String s) {
-            return null;
-        }
-
-        @Override
-        public @NotNull ItemHologramLine appendItem(@Nullable ItemStack itemStack) {
-            return null;
-        }
-
-        @Override
-        public @NotNull TextHologramLine insertText(int i, @Nullable String s) {
-            return null;
-        }
-
-        @Override
-        public @NotNull ItemHologramLine insertItem(int i, @NotNull ItemStack itemStack) {
-            return null;
-        }
-
-        @Override
-        public @NotNull HologramLine get(int i) {
-            return null;
-        }
-
-        @Override
-        public void remove(int i) {
-
-        }
-
-        @Override
-        public boolean remove(@NotNull HologramLine hologramLine) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public double getHeight() {
-            return 0;
-        }
-    };
+    HologramLines hologramLines = new HDLineImplementer();
+    HDAPIImplementer api = new HDAPIImplementer();
+    Hologram header = new HDImplementer();
+    Hologram body = new HDImplementer();
+    Hologram footer = new HDImplementer();
 
     public void loadTopHologram(String id) {
         if (main.isHologramsEnabled()) {
@@ -210,15 +96,15 @@ public class TopHologramManager {
 
                 Bukkit.getScheduler().scheduleSyncDelayedTask(main, () -> {
                     if (parkour.getTopHologram() != null) {
-                        Hologram header = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 4.5D, 0.5D));
+                        header = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 4.5D, 0.5D));
                         hologramLines.appendText(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Header.Line1").replaceAll("%parkour%", parkour.getName()));
                         hologramLines.appendText(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Header.Line2").replaceAll("%parkour%", parkour.getName()));
 
-                        Hologram body = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 3.75D, 0.5D));
+                         body = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 3.75D, 0.5D));
 
-                        Hologram footer = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 1D, 0.5D));
+                         footer = api.createHologram(parkour.getTopHologram().clone().add(0.5D, 1D, 0.5D));
                         hologramLines.appendText(main.getLanguageHandler()
                                 .getMessage("Holograms.Top.Footer.Line")
                                 .replaceAll("%time%", main.getTimerManager().millisToString(main.getLanguageHandler().getMessage("Timer.Formats.HologramUpdate"), timeLeft * 1000)));

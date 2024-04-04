@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 
 public class HologramTask {
 	
-	private int id;
+	private static int id;
 
 	private Main main = new Main();
 

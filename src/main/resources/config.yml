@@ -13,7 +13,7 @@ CheckUpdates: true
 
 # LANGUAGE OF THE PLUGIN
 # AVAILABLES BY DEFAULT: EN, ES, CN
-Language: CN
+Language: EN
 
 
 # DATABASE DETAILS
@@ -93,7 +93,7 @@ ActionBarTimer:
 Items:
     Enabled: true
     Restart:
-        ID: "BARRIER"
+        ID: "LEGACY_BARRIER"
         Name: '&4&lRestart'
         Lore: '&7Return to the start of the course to start again!'
     Checkpoint:

@@ -1,5 +1,8 @@
 package me.davidml16.aparkour.managers;
 
+import me.davidml16.aparkour.APIImplementer.HDAPIImplementer;
+import me.davidml16.aparkour.APIImplementer.HDImplementer;
+import me.davidml16.aparkour.APIImplementer.HDLineImplementer;
 import me.davidml16.aparkour.Main;
 import me.davidml16.aparkour.data.Parkour;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
@@ -27,9 +30,6 @@ public class StatsHologramManager {
 
 	Main main = (Main) Main.getProvidingPlugin(Main.class);
 
-	public StatsHologramManager(Main main) {
-	}
-
 	public void loadStatsHolograms(Player p) {
 		if (main.isHologramsEnabled()) {
 			for (String parkour : main.getParkourHandler().getParkours().keySet()) {
@@ -38,134 +38,15 @@ public class StatsHologramManager {
 		}
 	}
 
-	HologramLines hologramLines = new HologramLines() {
-		@Override
-		public @NotNull TextHologramLine appendText(@Nullable String s) {
-			return null;
-		}
+	HologramLines hologramLines = new HDLineImplementer();
 
-		@Override
-		public @NotNull ItemHologramLine appendItem(@Nullable ItemStack itemStack) {
-			return null;
-		}
-
-		@Override
-		public @NotNull TextHologramLine insertText(int i, @Nullable String s) {
-			return null;
-		}
-
-		@Override
-		public @NotNull ItemHologramLine insertItem(int i, @NotNull ItemStack itemStack) {
-			return null;
-		}
-
-		@Override
-		public @NotNull HologramLine get(int i) {
-			return null;
-		}
-
-		@Override
-		public void remove(int i) {
-
-		}
-
-		@Override
-		public boolean remove(@NotNull HologramLine hologramLine) {
-			return false;
-		}
-
-		@Override
-		public void clear() {
-
-		}
-
-		@Override
-		public int size() {
-			return 0;
-		}
-
-		@Override
-		public double getHeight() {
-			return 0;
-		}
-	};
-
-	HolographicDisplaysAPI api = new HolographicDisplaysAPI() {
-		@Override
-		public @NotNull Hologram createHologram(@NotNull Location location) {
-			return null;
-		}
-
-		@Override
-		public @NotNull Hologram createHologram(@NotNull Position position) {
-			return null;
-		}
-
-		@Override
-		public @NotNull Collection<Hologram> getHolograms() {
-			return null;
-		}
-
-		@Override
-		public void deleteHolograms() {
-
-		}
-
-		@Override
-		public void registerGlobalPlaceholder(@NotNull String s, int i, @NotNull GlobalPlaceholderReplaceFunction globalPlaceholderReplaceFunction) {
-
-		}
-
-		@Override
-		public void registerGlobalPlaceholder(@NotNull String s, @NotNull GlobalPlaceholder globalPlaceholder) {
-
-		}
-
-		@Override
-		public void registerGlobalPlaceholderFactory(@NotNull String s, @NotNull GlobalPlaceholderFactory globalPlaceholderFactory) {
-
-		}
-
-		@Override
-		public void registerIndividualPlaceholder(@NotNull String s, int i, @NotNull IndividualPlaceholderReplaceFunction individualPlaceholderReplaceFunction) {
-
-		}
-
-		@Override
-		public void registerIndividualPlaceholder(@NotNull String s, @NotNull IndividualPlaceholder individualPlaceholder) {
-
-		}
-
-		@Override
-		public void registerIndividualPlaceholderFactory(@NotNull String s, @NotNull IndividualPlaceholderFactory individualPlaceholderFactory) {
-
-		}
-
-		@Override
-		public boolean isRegisteredPlaceholder(@NotNull String s) {
-			return false;
-		}
-
-		@Override
-		public @NotNull Collection<String> getRegisteredPlaceholders() {
-			return null;
-		}
-
-		@Override
-		public void unregisterPlaceholder(@NotNull String s) {
-
-		}
-
-		@Override
-		public void unregisterPlaceholders() {
-
-		}
-	};
+	HolographicDisplaysAPI api = new HDAPIImplementer();
+	Hologram HD = new HDImplementer();
 
 	public void loadStatsHologram(Player p, String id) {
 		if (main.isHologramsEnabled()) {
 			Parkour parkour = main.getParkourHandler().getParkours().get(id);
-			if(parkour.getStatsHologram() != null) {
+			if(Parkour.getStatsHologram() != null) {
 				List<String> lines = new ArrayList<>();
 				lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line1"));
 				lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line2"));
@@ -177,9 +58,9 @@ public class StatsHologramManager {
 				}
 
 
-				Hologram hologram = api.createHologram(parkour.getStatsHologram().clone().add(0.5D, 2.0D, 0.5D));
+				HD = api.createHologram(parkour.getStatsHologram().clone().add(0.5D, 2.0D, 0.5D));
 
-				VisibilitySettings visibilitySettings = hologram.getVisibilitySettings();
+				VisibilitySettings visibilitySettings = HD.getVisibilitySettings();
 
 				visibilitySettings.isVisibleTo(p);
 				visibilitySettings.setGlobalVisibility(HIDDEN);
@@ -188,7 +69,7 @@ public class StatsHologramManager {
 				hologramLines.insertText(0, lines.get(0));
 				hologramLines.insertText(1, lines.get(1));
 
-				main.getPlayerDataHandler().getData(p).getHolograms().put(parkour.getId(), hologram);
+				main.getPlayerDataHandler().getData(p).getHolograms().put(parkour.getId(), HD);
 			}
 		}
 	}
@@ -231,7 +112,7 @@ public class StatsHologramManager {
 	}
 	
 	public List<String> getLines(Parkour parkour, Player p, long bestTime) {
-		List<String> lines = new ArrayList<String>();
+		List<String> lines = new ArrayList<>();
 		String NoBestTime = main.getLanguageHandler().getMessage("Times.NoBestTime");
 		lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line1"));
 		lines.add(main.getLanguageHandler().getMessage("Holograms.Stats.Line2"));
@@ -277,7 +158,7 @@ public class StatsHologramManager {
 		if (main.isHologramsEnabled()) {
 			HolographicDisplaysAPI.get(main).getHolograms().forEach(
 					hologram -> {
-						hologram.delete();
+						HD.delete();
 					}
 			);
 		}
