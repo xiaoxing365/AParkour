@@ -134,7 +134,6 @@ public class Main extends JavaPlugin {
         rewardHandler = new RewardHandler(this);
         rewardHandler.loadRewards();
 
-
         databaseHandler.openConnection();
         databaseHandler.getDatabase().loadTables();
 
@@ -176,7 +175,6 @@ public class Main extends JavaPlugin {
         topHologramManager.loadTopHolograms();
         topHologramManager.restartTimeLeft();
 
-
         hologramTask.start();
 
         returnTask = new ReturnTask(this);
@@ -214,7 +212,7 @@ public class Main extends JavaPlugin {
             setupChat();
         }
 
-        PluginDescriptionFile pdf = getDescription();
+        PluginDescriptionFile pdf = this.getDescription();
         log.sendMessage("");
         log.sendMessage(ColorManager.translate("  &eAParkour Enabled!"));
         log.sendMessage(ColorManager.translate("    &aVersion: &b" + pdf.getVersion()));

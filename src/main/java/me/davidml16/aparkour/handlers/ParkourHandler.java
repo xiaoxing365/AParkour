@@ -48,9 +48,9 @@ public class ParkourHandler {
 
 	public ParkourHandler(Main main) {
 		this.main = main;
-		this.parkours = new HashMap<String, Parkour>();
-		this.parkourFiles = new HashMap<String, File>();
-		this.parkourConfigs = new HashMap<String, YamlConfiguration>();
+		this.parkours = new HashMap<>();
+		this.parkourFiles = new HashMap<>();
+		this.parkourConfigs = new HashMap<>();
 		this.parkourGamemode = GameMode.valueOf(this.main.getConfig().getString("ParkourGamemode"));
 	}
 
